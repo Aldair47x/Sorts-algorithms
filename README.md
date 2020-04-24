@@ -45,7 +45,38 @@ Binary search ✓
 4. Run `node Taller.js [firstRangeNumber] [lastRangeNumber] [arrayLength] [numberToFindLS] [numberToFindBS]` and extend your console for better visualization.
 
 
-<p>Example: `node .\Taller.js 1 1000 10000 100 200`</p>
+Example: ` node .\Taller.js 1 1000 10000 100 200 `
+
+### OUTPUT
+Bubble sort Algorithm ✰
+
+- Operation took 1.128 secs
+- Number of comparisons done:  98649864
+- Number of swap done:  24900979
+
+Selection sort Algorithm ✰
+
+- Operation took 0.293 secs
+- Number of comparisons done:  50005000
+- Number of swap done:  20002
+
+Quick sort Algorithm ✰
+
+- Operation took 0.015 secs
+- Number of comparisons done:  101642
+- Number of swap done:  19750
+
+Linear search  ✰
+
+The first position of the element  100 is:  985
+
+- Operation took 0 secs
+
+Binary search  ✰
+
+The first position of the element  200 is:  2030
+
+- Operation took 0.001 secs
 
 
 <br>
