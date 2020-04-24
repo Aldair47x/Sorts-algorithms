@@ -1,4 +1,4 @@
-<h1>♛ DaVinci frontend test ♛ </h1>
+<h1>♛ Javascript sort algorithms ♛ </h1>
 
 <h2>Problem Statement</h2>
 
