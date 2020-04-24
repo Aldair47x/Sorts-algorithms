@@ -69,16 +69,16 @@ bubbleSort = (inputArr) => {
     return inputArr;
 };
 
-/** Javascript Algorithms — insertionSort
+/** Javascript Algorithms — selectionSort
  * @author Kyle Jensen 
  */
-insertionSort = (inputArr) => {
+selectionSort = (inputArr) => {
 
-    console.log('Insertion sort Algorithm ✰ \n');
+    console.log('Selection sort Algorithm ✰ \n');
 
 
-    let comparisonsNumber = 0;
-    let swapNumber = 0;
+    let comparisonsNumber1 = 0;
+    let swapNumber1 = 0;
 
 
     let end, start;
@@ -86,29 +86,39 @@ insertionSort = (inputArr) => {
     start = new Date();
 
 
-    let length = inputArr.length;
-    for (let i = 1; i < length; i++) {
-        let key = inputArr[i];
-        let j = i - 1;
-        while (j >= 0 && inputArr[j] > key) {
-            inputArr[j + 1] = inputArr[j];
-            j = j - 1;
-            swapNumber++;
+    
+    let len = inputArr.length;
+    for (let i = 0; i < len; i++) {
+        let min = i;
+        for (let j = i + 1; j < len; j++) {
+            if (inputArr[min] > inputArr[j]) {
+                min = j;
+            }
+            comparisonsNumber1++;
         }
-        comparisonsNumber++;
-        inputArr[j + 1] = key;
+        if (min !== i) {
+            let tmp = inputArr[i];
+            inputArr[i] = inputArr[min];
+            inputArr[min] = tmp;
+        }
+        swapNumber1 = swapNumber1 + 2;
     }
+    
+    
+    
 
 
     end = new Date();
 
     console.log('- Operation took ' + (end.getTime() - start.getTime()) / 1000 + ' secs');
 
-    console.log('- Number of comparisons done: ', comparisonsNumber);
-    console.log('- Number of swap done: ', swapNumber, '\n');
+    console.log('- Number of comparisons done: ', comparisonsNumber1);
+    console.log('- Number of swap done: ', swapNumber1, '\n');
 
     return inputArr;
 };
+
+
 
 
 // Find a "pivot" element in the array to compare all other
@@ -227,7 +237,9 @@ const randomArray = generateRandomArray();
 
 let arrayBubbleSort = bubbleSort(randomArray);
 
-let arrayInsertionSort = insertionSort(randomArray);
+let arrayselectionSort = selectionSort(randomArray);
+
+
 
 console.log('Quick sort Algorithm ✰ \n');
 let end1, start1;
@@ -243,10 +255,16 @@ console.log('- Number of swap done: ', swapNumber1, '\n');
 
 
 // Linear search 
+let end2, start2;
+start2 = new Date();
 let position1 = linearSearch(process.argv[5], arrayBubbleSort);
+end2 = new Date();
+
+let end3, start3;
+start3 = new Date();
 // Binary search
 let position2 = binarySearch(process.argv[6], arrayBubbleSort);
-
+end3 = new Date();
 
 console.log('Linear search  ✰ \n');
 if(position1 < 0){
@@ -254,6 +272,7 @@ if(position1 < 0){
 } else {
     console.log('The first position of the element ', process.argv[5], 'is: ', position1, '\n')
 }
+console.log('- Operation took ' + (end2.getTime() - start2.getTime()) / 1000 + ' secs', '\n');
 
 console.log('Binary search  ✰ \n');
 if(position2 < 0){
@@ -261,4 +280,5 @@ if(position2 < 0){
 } else {
     console.log('The first position of the element ', process.argv[6], 'is: ', position2, '\n')
 }
+console.log('- Operation took ' + (end3.getTime() - start3.getTime()) / 1000 + ' secs', '\n');
 
